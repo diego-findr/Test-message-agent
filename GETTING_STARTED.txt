@@ -1,0 +1,90 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║         🤖 AI RECRUITER AGENT - GETTING STARTED                   ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+INICIO RÁPIDO EN 3 PASOS
+════════════════════════
+
+1️⃣  INSTALAR
+────────────
+pip install -r requirements.txt
+
+2️⃣  CONFIGURAR
+──────────────
+cp .env.example .env
+# Edita .env y añade tu GOOGLE_API_KEY
+
+3️⃣  EJECUTAR
+────────────
+python example_usage.py    # Ver demo completa
+python main.py             # Iniciar servidor
+
+
+COMANDOS ÚTILES
+═══════════════
+
+make help        # Ver todos los comandos
+make install     # Instalar dependencias
+make run         # Ejecutar servidor
+make test        # Ejecutar tests
+make example     # Ejecutar ejemplo
+
+./run_example.sh # Ejecutar demo (configura todo automáticamente)
+
+
+ENDPOINTS API (cuando el servidor está corriendo)
+═════════════════════════════════════════════════
+
+Health:              GET  http://localhost:8080/health
+Iniciar conversación: POST http://localhost:8080/api/conversation/start
+Enviar mensaje:      POST http://localhost:8080/api/conversation/message
+Info de sesión:      GET  http://localhost:8080/api/session/{session_id}
+
+
+EJEMPLO CURL
+════════════
+
+# Iniciar conversación
+curl -X POST http://localhost:8080/api/conversation/start \
+  -H "Content-Type: application/json" \
+  -d '{"candidate_id": "test123", "platform": "linkedin"}'
+
+
+DOCUMENTACIÓN
+═════════════
+
+📖 README.md              - Documentación completa
+📖 QUICKSTART.md          - Guía de inicio rápido
+📖 ARCHITECTURE.md        - Arquitectura del sistema
+📖 CONVERSATION_FLOW.md   - Flujo de conversación detallado
+📖 PROJECT_SUMMARY.md     - Resumen ejecutivo
+
+
+ESTRUCTURA DEL CÓDIGO
+══════════════════════
+
+data_model.py      - Modelos de datos Pydantic
+services.py        - Servicios de negocio (RAG, evaluación)
+llm_chain.py       - Gestión de LLM y prompts
+graph.py           - Grafo LangGraph (state machine)
+main.py            - Microservicio FastAPI
+test_microservice.py - Tests unitarios
+
+
+DESPLEGAR A GOOGLE CLOUD RUN
+═════════════════════════════
+
+./deploy.sh YOUR_PROJECT_ID us-central1
+
+
+¿PROBLEMAS?
+═══════════
+
+- Revisa QUICKSTART.md sección "Troubleshooting"
+- Asegúrate de tener Python 3.10+
+- Verifica que GOOGLE_API_KEY esté configurado
+
+
+¡Listo para empezar! 🚀
